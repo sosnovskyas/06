@@ -8,7 +8,8 @@
     "test:watch": "NODE_ENV=test mocha -w --harmony ./test/rest.js ",
     "start": "NODE_ENV=development nodemon index.js",
     "prod": "NODE_ENV=production node --harmony-async-await index.js",
-    "db:start": "mongod --dbpath ./db/"
+    "db:start": "mongod --dbpath ./db/",
+    "db:stop": "pkill mongo"
   },
   "author": "Sosnovsky Alexey <sosnovsky.as@gmail.com>",
   "license": "GPL-3.0",
