@@ -20,46 +20,46 @@ const dbUrl = `mongodb://${config.mongoose.uri}`;
 // let app;
 describe("mongo", () => {
   /* eslint prefer-arrow-callback: 2 */
-  before(async() => {
-    mongoose.Promise = Promise;
-    mongoose.connect(dbUrl);
-
-    let Users;
-
-    try {
-      Users = mongoose.model('users')
-    } catch (error) {
-      Users = require('../models/user');
-    }
-
-    let user = new Users({
-      _id: ObjectId('57ffe7300b863737ddfe9a39'),
-      displayName: 'alex',
-      gender: 'M',
-      email: 'q@pukin.ru',
-      passwordHash: '123',
-      salt: '123'
-    });
-
-    try {
-      await
-        mongoose.connection.dropDatabase();
-    } catch (e) {
-      throw `before hook: ошибка сброса базы данных: ${e}`
-    }
-
-    try {
-      await
-        user.save();
-    } catch (e) {
-      throw `befor hook: ошибка создания пользователей: ${e}`
-    }
-
-
-  });
-  after(async() => {
-    await mongoose.disconnect();
-  });
+  // before(async() => {
+  //   mongoose.Promise = Promise;
+  //   mongoose.connect(dbUrl);
+  //
+  //   let Users;
+  //
+  //   try {
+  //     Users = mongoose.model('users')
+  //   } catch (error) {
+  //     Users = require('../models/user');
+  //   }
+  //
+  //   let user = new Users({
+  //     _id: ObjectId('57ffe7300b863737ddfe9a39'),
+  //     displayName: 'alex',
+  //     gender: 'M',
+  //     email: 'q@pukin.ru',
+  //     passwordHash: '123',
+  //     salt: '123'
+  //   });
+  //
+  //   try {
+  //     await
+  //       mongoose.connection.dropDatabase();
+  //   } catch (e) {
+  //     throw `before hook: ошибка сброса базы данных: ${e}`
+  //   }
+  //
+  //   try {
+  //     await
+  //       user.save();
+  //   } catch (e) {
+  //     throw `befor hook: ошибка создания пользователей: ${e}`
+  //   }
+  //
+  //
+  // });
+  // after(async() => {
+  //   await mongoose.disconnect();
+  // });
 
   context("reg user", () => {
     it(`POST ${commonUrl + 'users'} must return status 200 and add user to DB`, async() => {

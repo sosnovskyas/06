@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --harmony",
-    "test:watch": "NODE_ENV=test mocha -w --harmony ./test/rest.js ",
+    "test:watch": "NODE_ENV=test mocha -w --harmony ",
     "start": "NODE_ENV=development nodemon index.js",
     "prod": "NODE_ENV=production node --harmony-async-await index.js",
-    "db:start": "mongod --dbpath ./db/"
+    "db:start": "mongod --dbpath ./db/",
+    "db:stop": "pkill mongo"
   },
   "author": "Sosnovsky Alexey <sosnovsky.as@gmail.com>",
   "license": "GPL-3.0",
@@ -23,10 +24,10 @@
     "koa-session-mongoose": "1.0.0",
     "koa-static": "2.0.0",
     "mongoose": "4.7.2",
-    "pug": "2.0.0-beta6",
-    "should": "11.1.1"
+    "pug": "2.0.0-beta6"
   },
   "devDependencies": {
+    "should": "11.1.1",
     "request": "2.79.0",
     "request-promise": "4.1.1"
   }

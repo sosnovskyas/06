@@ -34,6 +34,13 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+userSchema.methods.getPublicFields = function() {
+  return {
+    displayName: this.displayName,
+    email: this.email
+  }
+};
+
 userSchema.virtual('password')
   .set(function(password) {
 
