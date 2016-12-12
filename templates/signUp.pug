@@ -7,9 +7,11 @@ block content
 
     .form-group
       label(for="email") Email
-      input.form-control(type="email" id="email" name="email" placeholder="my@mail.com" value="qwe@qwe.ru" required autofocus)
+      input.form-control(type="test" id="displayName" name="displayName" placeholder="displayName" value="Vasili" required autofocus)
+      input.form-control(type="email" id="email" name="email" placeholder="my@mail.com" value="qwe@qwe.ru" required)
     .form-group
-      label(for="password") Password
-      input.form-control(type="password" id="password" name="password" value="qwe" required)
+      label(for="passwordHash") Password
+      input.form-control(type="password" id="passwordHash" name="passwordHash" value="qwe" required)
+      input.form-control(type="hidden" id="salt" name="salt" value="salt")
 
     button.btn.btn-lg.btn-primary.btn-block(type="submit") SignUp
