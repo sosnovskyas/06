@@ -4,9 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const Router = require('koa-router');
-const router = new Router({
-  prefix: '/api'
-});
+const router = new Router();
 
 /*
  async function *isAuthenticated(next) {
