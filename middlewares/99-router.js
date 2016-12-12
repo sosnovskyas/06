@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const Router = require('koa-router');
-const router = new Router();
+const router = new Router({
+  prefix: '/api'
+});
 
 /*
  async function *isAuthenticated(next) {
@@ -20,7 +22,7 @@ const customRoutesPath = '/../routes';
 const customRoutes = fs.readdirSync(path.join(__dirname, customRoutesPath));
 
 customRoutes.forEach(customRoute => {
-  const r = require('../routes/'+customRoute).route;
+  const r = require('../routes/' + customRoute).route;
   router[r.metod](r.path, r.handler);
 });
 
