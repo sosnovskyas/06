@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  form(action="/signup" method="post" id="loginForm")
+    h1 Please sign up
+
+    .form-group
+      label(for="email") Email
+      input.form-control(type="email" id="email" name="email" placeholder="my@mail.com" value="qwe@qwe.ru" required autofocus)
+    .form-group
+      label(for="password") Password
+      input.form-control(type="password" id="password" name="password" value="qwe" required)
+
+    button.btn.btn-lg.btn-primary.btn-block(type="submit") SignUp
