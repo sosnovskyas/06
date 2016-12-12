@@ -1,3 +1,5 @@
+const should = require('should');
+
 const app = require('../app');
 const request = require('request-promise').defaults({
   resolveWithFullResponse: true,
@@ -16,11 +18,15 @@ describe("User REST API", async function () {
 
   let existingUserData = {
     email: "john@test.ru",
-    displayName: "John"
+    displayName: "John",
+    passwordHash: "123",
+    salt: "123"
   };
   let newUserData = {
     email: "alice@test.ru",
-    displayName: "Alice"
+    displayName: "Alice",
+    passwordHash: "qwe",
+    salt: "qwe"
   };
   let existingUser;
 
@@ -46,8 +52,8 @@ describe("User REST API", async function () {
         json: true,
         body: newUserData
       });
-      response.body.displayName.should.eql(newUserData.displayName);
-      response.body.email.should.eql(newUserData.email);
+      should(response.body.displayName).eql(newUserData.displayName);
+      should(response.body.email).eql(newUserData.email);
     });
 
     it("throws if email already exists", async function () {
@@ -58,7 +64,7 @@ describe("User REST API", async function () {
         body: existingUserData
       });
       response.statusCode.should.eql(400);
-      response.body.errors.email.should.exist;
+      should(response.body.errors.email).exist;
     });
 
     it("throws if email not valid", async function () {
