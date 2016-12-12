@@ -1,0 +1,7 @@
+{
+  "ignore": ["*.test.js", "test/*"],
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "verbose": true
+}
